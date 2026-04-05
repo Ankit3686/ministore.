@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniStore</title>
+
+    <!-- ICONS Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Font Lato -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="ministore.css">
+
+    <!-- External JS -->
+    <script src="ministore.js" defer></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+
+        <div id="header">
+
+            <div id="logo">MiniStore.</div>
+
+            <div class="menu-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="nav" id="nav">
+
+                <a href="#home" class="nav-link" id="homeLink">HOME</a>
+                <a href="#services" class="nav-link" id="serviceLink">SERVICE</a>
+                <a href="#products" class="nav-link" id="productLink">PRODUCTS</a>
+                <a href="#watch" class="nav-link" id="watchLink">WATCHES</a>
+                <a href="#sale" class="nav-link" id="saleLink">SALE</a>
+                <a href="#blog" class="nav-link" id="blogLink">BLOG</a>
+
+                <div class="dropdown">
+                    <a href="#">PAGES ▾</a>
+
+                    <div class="dropdown-content">
+                        <a href="about.html">ABOUT US</a>
+                        <a href="blog.html">BLOG</a>
+                        <a href="shop.html">SHOP</a>
+                        <a href="cart.html">CART</a>
+                        <a href="checkout.html">CHECKOUT</a>
+                        <a href="contact.html">CONTACT</a>
+                        <a href="orders.html">ORDERS</a>
+                    </div>
+                </div>
+                <a href="admin.html" id="adminLink" style="display:none;">ADMIN</a>
+
+            </div>
+
+            <div class="icons">
+                <a href="shop.html"><i class="fa-solid fa-magnifying-glass" title="Search"></i></a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping" title="Cart"></i></a>
+                <a href="login.html"><i class="fa-solid fa-user" title="Login"></i></a>
+                <a href="profile.html" id="username" title="Profile"></a>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ===== HOME / BANNER ===== -->
+
+        <section id="home">
+
+            <div class="slider">
+
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200" class="slide active">
+
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200" class="slide">
+
+                <!-- TEXT OVER IMAGE -->
+                <div class="slide-text">
+                    <h2>Latest Smart Devices</h2>
+                    <p>Discover the newest collection with best prices</p>
+                    <a href="shop.html" class="btn">Shop Now</a>
+                </div>
+
+
+                <button class="prev" onclick="prevSlide()">❮</button>
+                <button class="next" onclick="nextSlide()">❯</button>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- ===== SERVICE SECTION ===== -->
+
+        <div class="container1">
+
+            <section class="service-section" id="services">
+
+                <div class="service-items">
+
+                    <div class="service-card">
+                        <div class="title-row">
+                            <i class="fa-solid fa-truck icon"></i>
+                            <h3>FREE SHIPPING</h3>
+                        </div>
+                        <p>Consecteture adipiscing elit, sedagna aliqua</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="title-row">
+                            <i class="fa-solid fa-star icon"></i>
+                            <h3>QUALITY PRODUCTS</h3>
+                        </div>
+                        <p>Dolor sit ametvorem ipsum dolor sit amet</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="title-row">
+                            <i class="fa-solid fa-headset icon"></i>
+                            <h3>DAILY OFFERS</h3>
+                        </div>
+                        <p>Amet consecteture adipiscing elit, sedagna aliqua</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="title-row">
+                            <i class="fa-solid fa-lock icon"></i>
+                            <h3>SECURE PAYMENT</h3>
+                        </div>
+                        <p>Safe and fast payment system available</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+
+
+
+        <!-- ===== PRODUCTS ===== -->
+        <div class="container1">
+
+            <section class="products-section" id="products">
+
+                <h1>MOBILE PRODUCTS</h1>
+
+                <div class="products-row" id="productsContainer"></div>
+
+            </section>
+
+        </div>
+
+        <!-- ===== WATCH SECTION ===== -->
+        <div class="container1">
+
+            <section class="watch-section" id="watch">
+
+                <h1>SMART WATCHES</h1>
+
+                <div class="watch-row" id="watchContainer"></div>
+
+            </section>
+
+        </div>
+
+        <!-- ====== Sale Section ====== -->
+        <div class="container">
+
+            <section class="sale-section" id="sale">
+
+                <div class="sale-banner">
+                    <img src="./cute-asian-woman-shopping-online-showing-bank-credit-card-mobile-screen-smiling-looking-left.jpg"
+                        alt="sale banner">
+
+                    <!-- TEXT OVER IMAGE -->
+                    <div class="sale-text">
+                        <h2>New Year Sale</h2>
+                        <p>10% off on all products</p>
+                        <a href="shop.html" class="btn">SHOP SALE</a>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- ===== BLOG SECTION ===== -->
+        <div class="container1">
+
+            <section class="blog-section" id="blog">
+
+                <h1>LATEST POSTS</h1>
+
+                <div class="blog-row">
+
+                    <!-- Blog 1 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="./post-item1.jpg" alt="blog">
+                        </div>
+
+                        <div class="blog-content">
+                            <span class="blog-date">15 Feb 2026-GADGETS</span>
+                            <h3>Get some cool gadgets in 2026</h3>
+                        </div>
+                    </div>
+
+                    <!-- Blog 2 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="./post-item2 (1)ankit.jpg" alt="blog">
+                        </div>
+
+                        <div class="blog-content">
+                            <span class="blog-date">10 Feb 2026-TECHNOLOGY</span>
+                            <h3>Technology Hack You Won't Get</h3>
+                        </div>
+                    </div>
+
+                    <!-- Blog 3 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="./post-item3.jpg" alt="blog">
+                        </div>
+
+                        <div class="blog-content">
+                            <span class="blog-date">05 Feb 2026-CAMERA</span>
+                            <h3>Top 10 Small Camera In The World</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+
+
+
+        <!-- ===== BLOG SLIDER ===== -->
+
+        <div class="container">
+            <div class="blog-slider">
+
+                <!-- SLIDE 1 -->
+                <div class="blog-slide active">
+
+                    <img src="./bgblogimagebackground.avif" alt="blog">
+
+                    <div class="blog-slide-text">
+                        <blockquote>
+                            "Welcome to the MiniStore Blog — your destination for tech trends and gadget news.
+                            Find helpful guides and honest reviews to make smarter buying decisions."
+                        </blockquote>
+
+
+                        <div class="blog-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p>Ministore.</p>
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="blog-slide">
+
+                    <img src="./bgblogimagebackground.avif" alt="blog">
+
+                    <div class="blog-slide-text">
+                        <blockquote>
+                            "MiniStore Blog brings you the latest updates on smart gadgets and modern technology.
+                            Explore expert reviews, buying guides, and trends to stay ahead in the tech world.se."
+                        </blockquote>
+
+                        <div class="blog-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>Ministore.</p>
+                    </div>
+
+                </div>
+
+                <!-- ARROWS -->
+                <button class="blog-prev" onclick="prevBlog()">❮</button>
+                <button class="blog-next" onclick="nextBlog()">❯</button>
+
+            </div>
+        </div>
+
+
+        <!-- ===== SUBSCRIBE SECTION ===== -->
+        <div class="container1">
+            <div class="subscribe-section">
+
+                <div class="subscribe-overlay">
+
+                    <div class="subscribe-content">
+
+                        <!-- LEFT TEXT -->
+                        <div class="subscribe-text">
+                            <h3>SUBSCRIBE NOW</h3>
+                            <p>Get latest updates about our newest products and special offers.</p>
+                        </div>
+
+                        <!-- RIGHT FORM -->
+                        <div class="subscribe-form">
+                            <input type="email" placeholder="Enter your email address">
+                            <a href="https://www.youtube.com/" target="_blank"><button>Subscribe</button></a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ===== SHOP OUR INSTA ===== -->
+
+        <div class="container1">
+
+            <section class="insta-section" id="insta">
+
+                <h1>SHOP OUR INSTA</h1>
+
+                <div class="insta-row">
+
+                    <!-- Item 1 -->
+                    <div class="insta-card">
+                        <div class="insta-img">
+                            <img src="./product-item1.jpg" alt="insta">
+
+                            <div class="insta-overlay">
+                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="insta-card">
+                        <div class="insta-img">
+                            <img src="./product-item7.jpg" alt="insta">
+
+                            <div class="insta-overlay">
+                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="insta-card">
+                        <div class="insta-img">
+                            <img src="./product-item9.jpg" alt="insta">
+
+                            <div class="insta-overlay">
+                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="insta-card">
+                        <div class="insta-img">
+                            <img src="./product-item3.jpg" alt="insta">
+
+                            <div class="insta-overlay">
+                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="insta-card">
+                        <div class="insta-img">
+                            <img src="./product-item8.jpg" alt="insta">
+
+                            <div class="insta-overlay">
+                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- ===== FOOTER ===== -->
+
+
+        <footer class="footer">
+            <div class="container1">
+                <div class="footer-row">
+
+                    <!-- Column 1 -->
+                    <div class="footer-col">
+                        <h2 class="footer-logo">MiniStore.</h2>
+                        <p>Welcome to the MiniStore Blog — your destination for tech trends and gadget news.
+                            Find helpful guides and honest reviews to make smarter buying decisions.</p>
+
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+
+                    <!-- Column 2 -->
+                    <div class="footer-col">
+                        <h3>QUICK LINKS</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Column 3 -->
+                    <div class="footer-col">
+                        <h3>CONTACT INFO</h3>
+                        <p>Email: kumar22102001ankit@gmail.com</p>
+                        <p>Phone: +91 7807465416</p>
+                        <p>Location: India</p>
+                    </div>
+
+
+                    <!-- Column 4 -->
+                    <div class="footer-col">
+                        <h3>NEWSLETTER</h3>
+                        <p>Subscribe to get latest updates and offers.</p>
+
+                        <div class="footer-subscribe">
+                            <input type="email" placeholder="Enter your email">
+                            <a href="https://www.youtube.com/" target="_blank"><button>Subscribe</button></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p>© 2026 MiniStore. All Rights Reserved.</p>
+                <p>Pyment Methods: <i class="fa-brands fa-cc-visa"></i> <i class="fa-brands fa-cc-mastercard"></i>
+                </p>
+            </div>
+
+        </footer>
+    </div>
+
+
+
+</body>
+
+</html>

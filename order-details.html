@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — MiniStore</title>
+
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Same CSS -->
+    <link rel="stylesheet" href="ministore.css">
+
+    <!-- js -->
+    <script src="order-details.js" defer></script>
+</head>
+
+<body>
+
+    <div id="header">
+
+        <div id="logo">MiniStore.</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="nav" id="nav">
+
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="index.html#services" class="nav-link">SERVICE</a>
+            <a href="index.html#products" class="nav-link">PRODUCTS</a>
+            <a href="index.html#watch" class="nav-link">WATCHES</a>
+            <a href="index.html#sale" class="nav-link">SALE</a>
+            <a href="index.html#blog" class="nav-link">BLOG</a>
+
+
+
+            <div class="dropdown">
+                <a href="#">PAGES ▾</a>
+
+                <div class="dropdown-content">
+                    <a href="about.html">ABOUT US</a>
+                    <a href="blog.html">BLOG</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="cart.html">CART</a>
+                    <a href="checkout.html">CHECKOUT</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="orders.html">ORDERS</a>
+                </div>
+            </div>
+            <a href="admin.html" id="adminLink" style="display:none;">ADMIN</a>
+
+        </div>
+
+        <div class="icons">
+            <a href="shop.html"><i class="fa-solid fa-magnifying-glass" title="Search"></i></a>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping" title="Cart"></i></a>
+            <a href="login.html"><i class="fa-solid fa-user" title="Login"></i></a>
+            <a href="profile.html" id="username" title="Profile"></a>
+        </div>
+
+    </div>
+
+    <section class="about-hero">
+
+        <div class="about-hero-text">
+            <h1>ORDERS-DETAILS</h1>
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> > <span>Order details</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="invoice-container" id="invoice">
+
+        <div class="invoice-header">
+            <h1>MiniStore</h1>
+            <p>Invoice</p>
+        </div>
+
+        <div class="invoice-top">
+            <div>
+                <p><b>Order ID:</b> <span id="invId"></span></p>
+                <p><b>Date:</b> <span id="invDate"></span></p>
+                <p><b>Status:</b> <span id="invStatus"></span></p>
+            </div>
+
+            <div>
+                <p><b>Customer:</b> <span id="invUser"></span></p>
+                <p><b>Phone:</b> <span id="invPhone"></span></p>
+            </div>
+        </div>
+
+        <div class="invoice-address">
+            <h3>Shipping Address</h3>
+            <p id="invAddress"></p>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="invProducts"></tbody>
+        </table>
+
+        <div class="invoice-total">
+            <h2>Total: $<span id="invTotal"></span></h2>
+        </div>
+
+        <div class="invoice-actions">
+            <button onclick="history.back()">⬅ Back</button>
+            <button onclick="window.print()">🧾 Print</button>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
