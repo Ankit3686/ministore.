@@ -11,10 +11,11 @@ app = Flask(__name__)
 CORS(app)
 
 # ===== DB CONFIG =====
-app.config["MYSQL_HOST"] = os.environ.get("localhost")
-app.config["MYSQL_USER"] = os.environ.get("root")
-app.config["MYSQL_PASSWORD"] = os.environ.get("Ankit@82199")
-app.config["MYSQL_DB"] = os.environ.get("ministore")
+app.config["MYSQL_HOST"] = os.environ.get("MYSQLHOST")
+app.config["MYSQL_USER"] = os.environ.get("MYSQLUSER")
+app.config["MYSQL_PASSWORD"] = os.environ.get("MYSQLPASSWORD")
+app.config["MYSQL_DB"] = os.environ.get("MYSQLDATABASE")
+app.config["MYSQL_PORT"] = int(os.environ.get("MYSQLPORT", 3306))
 
 mysql = MySQL(app)
 
