@@ -1,7 +1,8 @@
 const BASE_URL =
-    ["localhost", "127.0.0.1"].includes(window.location.hostname)
-        ? "http://localhost:5000"
-        : "https://ministore-1.onrender.com";
+  ["localhost", "127.0.0.1"].includes(window.location.hostname)
+    ? "http://localhost:5000"
+    : "https://ministore-production-ff58.up.railway.app";
+
 // ===== LOAD ORDERS =====
 document.addEventListener("DOMContentLoaded", () => {
     const user_id = localStorage.getItem("user_id");
