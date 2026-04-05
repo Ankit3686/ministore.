@@ -1,8 +1,7 @@
 const BASE_URL =
     ["localhost", "127.0.0.1"].includes(window.location.hostname)
         ? "http://localhost:5000"
-        : "https://ministore-v1v3.onrender.com";
-
+        : "https://ministore-1.onrender.com";
 
 // ===== RESET PASSWORD (BACKEND) =====
 document.addEventListener("DOMContentLoaded", function () {
