@@ -1,7 +1,7 @@
 const BASE_URL =
-  ["localhost", "127.0.0.1"].includes(window.location.hostname)
-    ? "http://localhost:5000"
-    : "https://ministore-production-ff58.up.railway.app";
+    ["localhost", "127.0.0.1"].includes(window.location.hostname)
+        ? "http://localhost:5000"
+        : "https://ministore-production-ff58.up.railway.app";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -44,9 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         : "User";
             }
 
-            // ===== PROFILE IMAGE =====
             if (user.image) {
+                // Ye line image ko update karegi
                 document.getElementById("profileImage").src = user.image;
+            } else {
+                // Fallback
+                document.getElementById("profileImage").src = "/static/images/default-profile.jpg";
             }
 
         })
