@@ -10,13 +10,18 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-# ===== DB CONFIG =====
+# ===== DB CONFIG ====
 # ===== DB CONFIG (SAFE VERSION) =====
 app.config["MYSQL_HOST"] = os.environ.get("MYSQLHOST") or "mysql.railway.internal"
 app.config["MYSQL_USER"] = os.environ.get("MYSQLUSER") or "root"
-app.config["MYSQL_PASSWORD"] = os.environ.get("MYSQLPASSWORD") or "hZzupSQAtPLVtbqgDrXpOkkHfwLcbiQt"
+app.config["MYSQL_PASSWORD"] = (
+    os.environ.get("MYSQLPASSWORD") or "hZzupSQAtPLVtbqgDrXpOkkHfwLcbiQt"
+)
 app.config["MYSQL_DB"] = os.environ.get("MYSQLDATABASE") or "railway"
 app.config["MYSQL_PORT"] = int(os.environ.get("MYSQLPORT", 3306))
+
+app.config["UPLOAD_FOLDER"] = "static/uploads"
+
 mysql = MySQL(app)
 
 # ===== UPLOAD FOLDER =====
@@ -230,20 +235,30 @@ def get_user(user_id):
     return jsonify({"success": False}), 404
 
 
+# ===== Upload profile picture and update user record =====
 @app.route("/upload-profile", methods=["POST"])
 def upload_profile():
     file = request.files.get("image")
     user_id = request.form.get("user_id")
+
     if not file:
         return jsonify({"success": False, "message": "No file"})
+
     filename = secure_filename(file.filename)
     path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+
+    # Save file
     file.save(path)
-    image_url = f"{request.host_url}static/uploads/{filename}"
+
+    # Relative URL for DB / frontend
+    image_url = f"/static/uploads/{filename}"
+
+    # Update user in DB
     cur = mysql.connection.cursor()
     cur.execute("UPDATE users SET image=%s WHERE id=%s", (image_url, user_id))
     mysql.connection.commit()
     cur.close()
+
     return jsonify({"success": True, "image": image_url})
 
 
