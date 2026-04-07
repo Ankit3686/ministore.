@@ -46,7 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (user.image) {
                 // Ye line image ko update karegi
-                document.getElementById("profileImage").src = user.image;
+                 document.getElementById("profileImg").src =
+                    BASE_URL + user.image;
             } else {
                 // Fallback
                 document.getElementById("profileImage").src = "/static/images/default-profile.jpg";
