@@ -44,20 +44,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         : "User";
             }
 
+             const profileImg = document.getElementById("profileImage");
+
             if (user.image) {
-                // Ye line image ko update karegi
-                 document.getElementById("profileImg").src =
-                    BASE_URL + user.image;
+                profileImg.src = BASE_URL + user.image;
             } else {
-                // Fallback
-                document.getElementById("profileImage").src = "/static/images/default-profile.jpg";
+                profileImg.src = "https://ankit3686.github.io/ministore/static/images/default-profile.jpg";
             }
 
+
         })
-        .catch(err => console.error("Profile error:", err));
 
-
-    // ===== IMAGE UPLOAD =====
+    
+      // ===== IMAGE UPLOAD =====
     let uploadInput = document.getElementById("imageUpload");
 
     if (uploadInput) {
@@ -77,7 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        document.getElementById("profileImage").src = data.image;
+                        document.getElementById("profileImage").src =
+                            BASE_URL + data.image;
                     }
                 });
 
