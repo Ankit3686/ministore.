@@ -55,14 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     profileImg.src = BASE_URL + user.image;
                 }
             } else {
-                profileImg.src = "https://ankit3686.github.io/ministore/static/images/default-profile.jpg";
+              profileImg.src = "static/images/default-profile.jpg";
             }
 
             // Fallback if image broken
-            profileImg.onerror = function () {
-                this.src = "https://ankit3686.github.io/ministore/static/images/default-profile.jpg";
+           profileImg.onerror = function () {
+                this.onerror = null; // ❗ loop stop
+                this.src = "static/images/default-profile.jpg";
             };
-
         })
         .catch(err => console.error("Profile error:", err));
 
