@@ -20,4 +20,4 @@ MiniStore is a full-stack e-commerce web app built with **Flask**, **MySQL**, an
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ministore.git
+   git clone https://github.com/Ankit3686/ministore.git
