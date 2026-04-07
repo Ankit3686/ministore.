@@ -241,27 +241,34 @@ def get_user(user_id):
         )
     return jsonify({"success": False}), 404
 
+
 # ===== UPLOAD PROFILE IMAGE =====
 @app.route("/upload-profile", methods=["POST"])
 def upload_profile():
-    file = request.files.get("image")
-    user_id = request.form.get("user_id")
+    try:
+        file = request.files.get("image")
+        user_id = request.form.get("user_id")
 
-    if not file:
-        return jsonify({"success": False, "message": "No file"})
+        if not file:
+            return jsonify({"success": False, "message": "No file"})
 
-    # Upload to Cloudinary
-    result = cloudinary.uploader.upload(file)
+        # Upload to Cloudinary
+        result = cloudinary.uploader.upload(file)
 
-    image_url = result.get("secure_url")
+        image_url = result.get("secure_url")
 
-    # Save in DB
-    cur = mysql.connection.cursor()
-    cur.execute("UPDATE users SET image=%s WHERE id=%s", (image_url, user_id))
-    mysql.connection.commit()
-    cur.close()
+        # Save to DB
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE users SET image=%s WHERE id=%s", (image_url, user_id))
+        mysql.connection.commit()
+        cur.close()
 
-    return jsonify({"success": True, "image": image_url})
+        return jsonify({"success": True, "image": image_url})
+
+    except Exception as e:
+        print("UPLOAD ERROR:", e)  # 🔥 IMPORTANT
+        return jsonify({"success": False, "message": str(e)})
+
 
 
 
