@@ -252,9 +252,14 @@ def upload_profile():
         if not file:
             return jsonify({"success": False, "message": "No file"})
 
+        if not user_id:
+            return jsonify({"success": False, "message": "User ID missing"})
+
+        if not file.mimetype.startswith("image/"):
+            return jsonify({"success": False, "message": "Invalid file type"})
+
         # Upload to Cloudinary
         result = cloudinary.uploader.upload(file)
-
         image_url = result.get("secure_url")
 
         # Save to DB
@@ -266,10 +271,8 @@ def upload_profile():
         return jsonify({"success": True, "image": image_url})
 
     except Exception as e:
-        print("UPLOAD ERROR:", e)  # 🔥 IMPORTANT
+        print("UPLOAD ERROR:", str(e))
         return jsonify({"success": False, "message": str(e)})
-
-
 
 
 # ===== RESET PASSWORD =====
