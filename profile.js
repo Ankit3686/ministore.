@@ -55,13 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     profileImg.src = BASE_URL + user.image;
                 }
             } else {
-              profileImg.src ="/ministore/static/images/default-profile.jpg";
+              profileImg.src ="/ministore/backend/static/images/default-profile.jpg";
             }
 
             // Fallback if image broken
            profileImg.onerror = function () {
                 this.onerror = null; // ❗ loop stop
-                this.src ="/ministore/static/images/default-profile.jpg";
+                this.src ="/ministore/backend/static/images/default-profile.jpg";
             };
         })
         .catch(err => console.error("Profile error:", err));
