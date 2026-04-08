@@ -48,21 +48,21 @@ document.addEventListener("DOMContentLoaded", function () {
             const profileImg = document.getElementById("profileImage");
 
             if (user.image) {
-                // Cloudinary OR old data handle
                 if (user.image.startsWith("http")) {
                     profileImg.src = user.image;
                 } else {
-                    profileImg.src = BASE_URL + user.image;
+                    profileImg.src = `${BASE_URL}${user.image}`;
                 }
             } else {
-              profileImg.src ="/ministore/static/images/default-profile.jpg";
+                profileImg.src = `${BASE_URL}/static/images/default-profile.jpg`;
             }
 
-            // Fallback if image broken
-           profileImg.onerror = function () {
-                this.onerror = null; // ❗ loop stop
-                this.src ="/ministore/static/images/default-profile.jpg";
+            // fallback
+            profileImg.onerror = function () {
+                this.onerror = null;
+                this.src = `${BASE_URL}/static/images/default-profile.jpg`;
             };
+
         })
         .catch(err => console.error("Profile error:", err));
 
@@ -89,8 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         let imgEl = document.getElementById("profileImage");
 
-                        // Cloudinary URL
-                        imgEl.src = data.image + "?t=" + new Date().getTime();
+                        if (data.image.startsWith("http")) {
+                            imgEl.src = data.image + "?t=" + new Date().getTime();
+                        } else {
+                            imgEl.src = BASE_URL + data.image + "?t=" + new Date().getTime();
+                        }
 
                     } else {
                         alert("Upload failed ❌");
