@@ -228,7 +228,7 @@ def remove_item():
     return jsonify({"success": True})
 
 
-# ===== USER PROFILE + UPLOAD =====
+# ===== GET USER INFO =====
 @app.route("/user/<int:user_id>", methods=["GET"])
 def get_user(user_id):
     cur = mysql.connection.cursor()
@@ -240,7 +240,6 @@ def get_user(user_id):
             {"id": user[0], "name": user[1], "email": user[2], "image": user[3]}
         )
     return jsonify({"success": False}), 404
-
 
 # ===== UPLOAD PROFILE IMAGE =====
 @app.route("/upload-profile", methods=["POST"])
@@ -255,8 +254,7 @@ def upload_profile():
         if not user_id:
             return jsonify({"success": False, "message": "User ID missing"})
 
-        if not file.mimetype.startswith("image/"):
-            return jsonify({"success": False, "message": "Invalid file type"})
+        user_id = int(user_id)  # 🔥 FIX
 
         # Upload to Cloudinary
         result = cloudinary.uploader.upload(file)
@@ -266,6 +264,9 @@ def upload_profile():
         cur = mysql.connection.cursor()
         cur.execute("UPDATE users SET image=%s WHERE id=%s", (image_url, user_id))
         mysql.connection.commit()
+
+        print("Rows affected:", cur.rowcount)  # 🔥 debug
+
         cur.close()
 
         return jsonify({"success": True, "image": image_url})
@@ -273,7 +274,6 @@ def upload_profile():
     except Exception as e:
         print("UPLOAD ERROR:", str(e))
         return jsonify({"success": False, "message": str(e)})
-
 
 # ===== RESET PASSWORD =====
 @app.route("/reset-password", methods=["POST"])
